@@ -1,0 +1,11 @@
+##MC##
+* ESP32
+##Temario##
+*Periferios
+*Tareas
+*Wi-fi
+*OTA
+##Calificaciones##
+*Proyecto: 40%
+*Perifericos: 30%
+*Wi-fi: 30%
