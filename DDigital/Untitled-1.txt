@@ -1,0 +1,12 @@
+Para altium:
+-Simbolo
+
+Parametros: manufacturer
+            -manufacturer part number
+            -suppler
+            -suppler part number
+            -usage
+                                -cuttape
+                                -dig-reel
+                                -tapere
+ferminta(bobina)+ parelelo de capacitor bulk(grande)10uF y desacople tantos como pines a alimentar 0.1uF. capacitores voltaje rating +80%
