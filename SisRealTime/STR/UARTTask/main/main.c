@@ -19,9 +19,12 @@
 
 #define ADC_CHANNEL    ADC1_CHANNEL_0
 
+int blink_interval = 1000;
+
 //Create the Queues
 QueueHandle_t uart_queue;
 QueueHandle_t led_queue;
+QueueHandle_t adc_queue;
 
 //Create struct of params to UARTTask and LEDTask
 typedef struct {
@@ -35,6 +38,17 @@ typedef struct {
   float threshold;
 } TemperatureParams;
 
+static void IRAM_ATTR button_up_isr_handler(void* arg)
+{
+    int* blink_interval = (int*) arg;
+    *blink_interval /= 2;
+}
+
+static void IRAM_ATTR button_down_isr_handler(void* arg)
+{
+    int* blink_interval = (int*) arg;
+    *blink_interval *= 2;
+}
 
 static void gpio_config_task(void *pvParameters) {
 
@@ -47,7 +61,13 @@ static void gpio_config_task(void *pvParameters) {
     gpio_config(&io_conf);
     io_conf.mode = GPIO_MODE_INPUT;
     io_conf.pin_bit_mask = (1ULL << BTN_UP_GPIO) | (1ULL << BTN_DOWN_GPIO);
+    io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
+    io_conf.intr_type = GPIO_INTR_NEGEDGE;
     gpio_config(&io_conf);
+
+    gpio_install_isr_service(ESP_INTR_FLAG_LEVEL3);
+    gpio_isr_handler_add(BTN_UP_GPIO, button_up_isr_handler, &blink_interval);
+    gpio_isr_handler_add(BTN_DOWN_GPIO, button_down_isr_handler, &blink_interval);
 
     vTaskDelete(NULL);
 }
@@ -63,7 +83,8 @@ void adc_task(void *pvParameters) {
         float voltage = (float)adc_reading / 4095.0 * 3.3; // Conversión a voltaje
         float resistance = (3300.0 - voltage * 1000.0) / (voltage); // Cálculo de la resistencia del termistor
         params.temperature = (1.0 / (1.0 / 298.15 + 1.0 / 3434.0 * log(resistance / 10000.0))) - 273.15; // Cálculo de la temperatura del termistor
-        printf("Temperatura: %.2f°C\n",params.temperature);
+        //printf("Temperatura: %.2f°C\n",params.temperature);
+        xQueueSend(adc_queue, &params, portMAX_DELAY);
         vTaskDelay(1000 / portTICK_PERIOD_MS); // Esperar un segundo antes de leer el ADC de nuevo
     }
 }
@@ -88,7 +109,7 @@ static void uart_task(void *pvParameters) {
     uart_set_pin(UART_NUM_0, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
     uart_driver_install(UART_NUM_0, 1024, 0, 0, NULL, 0);
 
-    uart_write_bytes(UART_NUM_0, "Comando no reconocido\r\n", 23);
+    uart_write_bytes(UART_NUM_0, " Comando no reconocido\r\n", 23);
 
     while (1) {
         // Leer comando UART del usuario
@@ -158,8 +179,9 @@ static void uart_task(void *pvParameters) {
     }
 
 }
+
 static void blink_task(void *pvParameters) {
-    int blink_interval = 1000;
+    int blink_interval = *(int*) pvParameters;
     int state = 0;
     while (1) {
         state = !state;
@@ -205,12 +227,26 @@ static void led_task(void *pvParameters) {
 
 void app_main(void)
 {
+
+    //Mensaje de bienvenida con los comandos posibles
+    printf("Bienvenido! Comandos posibles:\n");
+    printf("  - TMINR: definir temperatura mínima para LED rojo\n");
+    printf("  - TMAXR: definir temperatura máxima para LED rojo\n");
+    printf("  - TMING: definir temperatura mínima para LED verde\n");
+    printf("  - TMAXG: definir temperatura máxima para LED verde\n");
+    printf("  - TMINB: definir temperatura mínima para LED azul\n");
+    printf("  - TMAXB: definir temperatura máxima para LED azul\n");
+    printf("  - THRESHOLD: definir threshold para blink LED\n");
+
     //create queues
+    adc_queue = xQueueCreate(10, sizeof(TemperatureParams));
     uart_queue = xQueueCreate(10, sizeof(TemperatureParams));
     led_queue = xQueueCreate(10, sizeof(TemperatureParams));
 
     // Crear tarea de configuración de GPIO
     xTaskCreate(gpio_config_task, "GPIO config", 4096, NULL, 5, NULL);
+
+    
 
     // Crear tarea de lectura de ADC
     xTaskCreate(adc_task, "ADC read", 4096, NULL, 5, NULL);
@@ -224,12 +260,4 @@ void app_main(void)
     vTaskDelay(10);
 
 }
-// Mensaje de bienvenida con los comandos posibles
-    // printf("Bienvenido! Comandos posibles:\n");
-    // printf("  - TMINR: definir temperatura mínima para LED rojo\n");
-    // printf("  - TMAXR: definir temperatura máxima para LED rojo\n");
-    // printf("  - TMING: definir temperatura mínima para LED verde\n");
-    // printf("  - TMAXG: definir temperatura máxima para LED verde\n");
-    // printf("  - TMINB: definir temperatura mínima para LED azul\n");
-    // printf("  - TMAXB: definir temperatura máxima para LED azul\n");
-    // printf("  - THRESHOLD: definir threshold para blink LED\n");
+

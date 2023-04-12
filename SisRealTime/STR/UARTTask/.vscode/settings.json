@@ -16,5 +16,7 @@
     "files.associations": {
         "stdio.h": "c",
         "string.h": "c"
-    }
+    },
+    "idf.flashType": "UART",
+    "idf.portWin": "COM5"
 }
