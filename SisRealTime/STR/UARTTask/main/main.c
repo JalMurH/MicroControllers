@@ -9,48 +9,47 @@
 #include "esp_system.h"
 #include <math.h>
 
-#define LED_RED_GPIO   25
+#define LED_RED_GPIO 25
 #define LED_GREEN_GPIO 27
-#define LED_BLUE_GPIO  26
-#define BLINK_LED_GPIO 2    
+#define LED_BLUE_GPIO 26
+#define BLINK_LED_GPIO 2
 
-#define BTN_UP_GPIO    32
-#define BTN_DOWN_GPIO  33
+#define BTN_UP_GPIO 32
+#define BTN_DOWN_GPIO 33
 
-#define ADC_CHANNEL    ADC1_CHANNEL_0
+#define ADC_CHANNEL ADC1_CHANNEL_0
 
 int blink_interval = 1000;
+float refRes = 1000;
 
-//Create the Queues
+// Create the Queues
 QueueHandle_t uart_queue;
 QueueHandle_t led_queue;
 QueueHandle_t adc_queue;
 
-//Create struct of params to UARTTask and LEDTask
-typedef struct {
-  float tmin_r;
-  float tmax_r;
-  float tmin_g;
-  float tmax_g;
-  float tmin_b;
-  float tmax_b;
-  float temperature;
-  float threshold;
+// Create struct of params to UARTTask and LEDTask
+typedef struct{
+    float tmin_r;
+    float tmax_r;
+    float tmin_g;
+    float tmax_g;
+    float tmin_b;
+    float tmax_b;
+    float temperature;
+    float threshold;
 } TemperatureParams;
 
-static void IRAM_ATTR button_up_isr_handler(void* arg)
-{
-    int* blink_interval = (int*) arg;
+static void IRAM_ATTR button_up_isr_handler(void *arg){
+    int *blink_interval = (int *)arg;
     *blink_interval /= 2;
 }
 
-static void IRAM_ATTR button_down_isr_handler(void* arg)
-{
-    int* blink_interval = (int*) arg;
+static void IRAM_ATTR button_down_isr_handler(void *arg){
+    int *blink_interval = (int *)arg;
     *blink_interval *= 2;
 }
 
-static void gpio_config_task(void *pvParameters) {
+static void gpio_config_task(void *pvParameters){
 
     gpio_config_t io_conf;
     io_conf.mode = GPIO_MODE_OUTPUT;
@@ -72,24 +71,33 @@ static void gpio_config_task(void *pvParameters) {
     vTaskDelete(NULL);
 }
 
-void adc_task(void *pvParameters) {
+void adc_task(void *pvParameters){
 
     TemperatureParams params;
 
     adc1_config_width(ADC_WIDTH_BIT_12);
     adc1_config_channel_atten(ADC_CHANNEL, ADC_ATTEN_DB_11);
-    while (1) {
+    while (1)
+    {
         int adc_reading = adc1_get_raw(ADC_CHANNEL);
-        float voltage = (float)adc_reading / 4095.0 * 3.3; // Conversión a voltaje
-        float resistance = (3300.0 - voltage * 1000.0) / (voltage); // Cálculo de la resistencia del termistor
-        params.temperature = (1.0 / (1.0 / 298.15 + 1.0 / 3434.0 * log(resistance / 10000.0))) - 273.15; // Cálculo de la temperatura del termistor
-        //printf("Temperatura: %.2f°C\n",params.temperature);
+        float voltage = (float)adc_reading / 4095.0 * 3.3;                                              // Conversión a voltaje
+        float resistance = (3300.0 - voltage * 1000.0) / (voltage);                                     // Cálculo de la resistencia del termistor
+        params.temperature = (1.0 / (1.0 / 298.15 + 1.0 / 3434.0 * log(resistance / refRes))) - 273.15; // Cálculo de la temperatura del termistor
+        printf("Ressitencia: %.2f\n", resistance);
+        printf("Temperatura: %.2f°C\n", params.temperature);
+        printf("tmin_r: %.2f°C\n", params.tmin_r);
+        printf("tmax_r: %.2f°C\n", params.tmax_r);
+        printf("tmin_g: %.2f°C\n", params.tmin_g);
+        printf("tmax_g: %.2f°C\n", params.tmax_g);
+        printf("tmin_b: %.2f°C\n", params.tmin_b);
+        printf("tmax_b: %.2f°C\n", params.tmax_b);
+        printf("Threshold: %.2f°C\n", params.threshold);
         xQueueSend(adc_queue, &params, portMAX_DELAY);
         vTaskDelay(1000 / portTICK_PERIOD_MS); // Esperar un segundo antes de leer el ADC de nuevo
     }
 }
 
-static void uart_task(void *pvParameters) {
+static void uart_task(void *pvParameters){
     //
     TemperatureParams params;
 
@@ -102,8 +110,7 @@ static void uart_task(void *pvParameters) {
         .data_bits = UART_DATA_8_BITS,
         .parity = UART_PARITY_DISABLE,
         .stop_bits = UART_STOP_BITS_1,
-        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE
-    };
+        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE};
 
     uart_param_config(UART_NUM_0, &uart_config);
     uart_set_pin(UART_NUM_0, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
@@ -111,124 +118,174 @@ static void uart_task(void *pvParameters) {
 
     uart_write_bytes(UART_NUM_0, " Comando no reconocido\r\n", 23);
 
-    while (1) {
+    while (1)
+    {
         // Leer comando UART del usuario
-       len = uart_read_bytes(UART_NUM_0, (uint8_t*)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
-        if (len > 0) {
+        len = uart_read_bytes(UART_NUM_0, (uint8_t *)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
+        if (len > 0)
+        {
             uart_cmd[len] = '\0';
             printf("Comando recibido: %s\n", uart_cmd);
-        // Analizar el comando y realizar las acciones correspondientes
-        if (strcmp(uart_cmd, "TMINR") == 0) {
-                len = uart_read_bytes(UART_NUM_0, (uint8_t*)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
-                if (len > 0) {
+            // Analizar el comando y realizar las acciones correspondientes
+            if (strcmp(uart_cmd, "TMINR") == 0)
+            {
+                len = uart_read_bytes(UART_NUM_0, (uint8_t *)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
+                if (len > 0)
+                {
                     uart_cmd[len] = '\0';
                     params.tmin_r = atof(uart_cmd);
 
                     printf("Temperatura mínima para LED rojo definida en %f°C\n", params.tmin_r);
                 }
-            } else if (strcmp(uart_cmd, "TMAXR") == 0) {
-                len = uart_read_bytes(UART_NUM_0, (uint8_t*)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
-                if (len > 0) {
+            }
+            else if (strcmp(uart_cmd, "TMAXR") == 0)
+            {
+                len = uart_read_bytes(UART_NUM_0, (uint8_t *)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
+                if (len > 0)
+                {
                     uart_cmd[len] = '\0';
                     params.tmax_r = atof(uart_cmd);
                     printf("Temperatura máxima para LED rojo definida en %f°C\n", params.tmax_r);
                 }
-            } else if (strcmp(uart_cmd, "TMING") == 0) {
-                len = uart_read_bytes(UART_NUM_0, (uint8_t*)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
-                if (len > 0) {
+            }
+            else if (strcmp(uart_cmd, "TMING") == 0)
+            {
+                len = uart_read_bytes(UART_NUM_0, (uint8_t *)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
+                if (len > 0)
+                {
                     uart_cmd[len] = '\0';
                     params.tmin_g = atof(uart_cmd);
                     printf("Temperatura mínima para LED Verde definida en %f°C\n", params.tmin_g);
                 }
-            } else if (strcmp(uart_cmd, "TMAXG") == 0) {
-                len = uart_read_bytes(UART_NUM_0, (uint8_t*)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
-                if (len > 0) {
+            }
+            else if (strcmp(uart_cmd, "TMAXG") == 0)
+            {
+                len = uart_read_bytes(UART_NUM_0, (uint8_t *)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
+                if (len > 0)
+                {
                     uart_cmd[len] = '\0';
                     params.tmax_g = atof(uart_cmd);
                     printf("Temperatura máxima para LED Verde definida en %f°C\n", params.tmax_g);
                 }
-            } else if (strcmp(uart_cmd, "TMINB") == 0) {
-                len = uart_read_bytes(UART_NUM_0, (uint8_t*)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
-                if (len > 0) {
+            }
+            else if (strcmp(uart_cmd, "TMINB") == 0)
+            {
+                len = uart_read_bytes(UART_NUM_0, (uint8_t *)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
+                if (len > 0)
+                {
                     uart_cmd[len] = '\0';
                     params.tmin_b = atof(uart_cmd);
                     printf("Temperatura mínima para LED Azul definida en %f°C\n", params.tmin_b);
                 }
-            } else if (strcmp(uart_cmd, "TMAXB") == 0) {
-                len = uart_read_bytes(UART_NUM_0, (uint8_t*)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
-                if (len > 0) {
+            }
+            else if (strcmp(uart_cmd, "TMAXB") == 0)
+            {
+                len = uart_read_bytes(UART_NUM_0, (uint8_t *)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
+                if (len > 0)
+                {
                     uart_cmd[len] = '\0';
                     params.tmax_b = atof(uart_cmd);
                     printf("Temperatura máxima para LED Azul definida en %f°C\n", params.tmax_b);
                 }
-            } else if (strcmp(uart_cmd, "THRESHOLD") == 0) {
-                len = uart_read_bytes(UART_NUM_0, (uint8_t*)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
-                if (len > 0) {
+            }
+            else if (strcmp(uart_cmd, "THRESHOLD") == 0)
+            {
+                len = uart_read_bytes(UART_NUM_0, (uint8_t *)uart_cmd, sizeof(uart_cmd), 100 / portTICK_PERIOD_MS);
+                if (len > 0)
+                {
                     uart_cmd[len] = '\0';
                     params.threshold = atof(uart_cmd);
                     printf("Threshold para LED Blink definida en %f°C\n", params.threshold);
                 }
-            }else {
+            }
+            else
+            {
                 // Comando no reconocido
                 uart_write_bytes(UART_NUM_0, "Comando no reconocido\r\n", 23);
             }
-            //Send modified structure values
+            // Send modified structure values
             xQueueSend(led_queue, &params, portMAX_DELAY);
         }
-        vTaskDelay(10 / portTICK_PERIOD_MS);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
-
 }
 
-static void blink_task(void *pvParameters) {
-    int blink_interval = *(int*) pvParameters;
+static void blink_task(void *pvParameters){
+    int blink_interval = *(int *)pvParameters;
     int state = 0;
-    while (1) {
+    while (1)
+    {
         state = !state;
         gpio_set_level(BLINK_LED_GPIO, state);
         vTaskDelay(blink_interval / portTICK_PERIOD_MS);
     }
 }
 
-static void led_task(void *pvParameters) {
+static void led_task(void *pvParameters){
     TemperatureParams params;
-    while (1) {
-        if (xQueueReceive(led_queue, &params, portMAX_DELAY) == pdPASS) {
+    while (1)
+    {
+        if (xQueueReceive(led_queue, &params, portMAX_DELAY) == pdPASS)
+        {
             // Leer la variable global de temperatura
-            if (params.temperature <= params.tmax_r && params.temperature >= params.tmin_r) {
+            if (params.temperature <= params.tmax_r && params.temperature >= params.tmin_r)
+            {
                 // Encender el LED rojo
-                gpio_set_level(LED_RED_GPIO, 1); // Encender LED rojo
+                gpio_set_level(LED_RED_GPIO, 1);   // Encender LED rojo
                 gpio_set_level(LED_GREEN_GPIO, 0); // Apagar LED verde
-                gpio_set_level(LED_BLUE_GPIO, 0); // Apagar LED azul
-            } else if (params.temperature <= params.tmax_g && params.temperature >= params.tmin_g ) {
+                gpio_set_level(LED_BLUE_GPIO, 0);  // Apagar LED azul
+            }
+            else if (params.temperature <= params.tmax_g && params.temperature >= params.tmin_g)
+            {
                 // Encender el LED verde
-                gpio_set_level(LED_RED_GPIO, 0); // Apagar LED rojo
+                gpio_set_level(LED_RED_GPIO, 0);   // Apagar LED rojo
                 gpio_set_level(LED_GREEN_GPIO, 1); // Encender LED verde
-                gpio_set_level(LED_BLUE_GPIO, 0); // Apagar LED azul
-            } else if (params.temperature <= params.tmax_b && params.temperature >= params.tmin_b){
-                gpio_set_level(LED_RED_GPIO, 0); // Apagar LED rojo
+                gpio_set_level(LED_BLUE_GPIO, 0);  // Apagar LED azul
+            }
+            else if (params.temperature <= params.tmax_b && params.temperature >= params.tmin_b)
+            {
+                gpio_set_level(LED_RED_GPIO, 0);   // Apagar LED rojo
                 gpio_set_level(LED_GREEN_GPIO, 0); // Apagar LED verde
-                gpio_set_level(LED_BLUE_GPIO, 1); // Encender LED azul
-            }else if (params.temperature > params.threshold){
-                //User threshold overpass
-                xTaskCreate(blink_task, "blinktask", 2048, NULL , 2, NULL);
-            }else {
-                gpio_set_level(LED_RED_GPIO, 0); // Apagar LED rojo
+                gpio_set_level(LED_BLUE_GPIO, 1);  // Encender LED azul
+            }
+            else if (params.temperature > params.threshold)
+            {
+                // User threshold overpass
+                xTaskCreate(blink_task, "blinktask", 2048, NULL, 2, NULL);
+            }
+            else
+            {
+                gpio_set_level(LED_RED_GPIO, 0);   // Apagar LED rojo
                 gpio_set_level(LED_GREEN_GPIO, 0); // Apagar LED verde
-                gpio_set_level(LED_BLUE_GPIO, 0); // Apagar LED azul
+                gpio_set_level(LED_BLUE_GPIO, 0);  // Apagar LED azul
             }
         }
         vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
 
+void app_main(void){
 
+    // create queues
+    adc_queue = xQueueCreate(10, sizeof(TemperatureParams));
+    uart_queue = xQueueCreate(10, sizeof(TemperatureParams));
+    led_queue = xQueueCreate(10, sizeof(TemperatureParams));
 
+    // Crear tarea de configuración de GPIO
+    xTaskCreate(gpio_config_task, "GPIO config", 4096, NULL, 5, NULL);
 
-void app_main(void)
-{
+    // Crear tarea de lectura de ADC
+    xTaskCreate(adc_task, "ADC read", 4096, NULL, 5, NULL);
 
-    //Mensaje de bienvenida con los comandos posibles
+    // Crear tarea de lectura de comandos UART
+    xTaskCreate(uart_task, "UART read", 4096, NULL, 5, NULL);
+
+    // Enciende y apaga los led segun los estados de las variables
+    xTaskCreate(led_task, "Led Set", 4096, NULL, 5, NULL);
+
+    //vTaskStartScheduler();
+
+    // Mensaje de bienvenida con los comandos posibles
     printf("Bienvenido! Comandos posibles:\n");
     printf("  - TMINR: definir temperatura mínima para LED rojo\n");
     printf("  - TMAXR: definir temperatura máxima para LED rojo\n");
@@ -238,26 +295,5 @@ void app_main(void)
     printf("  - TMAXB: definir temperatura máxima para LED azul\n");
     printf("  - THRESHOLD: definir threshold para blink LED\n");
 
-    //create queues
-    adc_queue = xQueueCreate(10, sizeof(TemperatureParams));
-    uart_queue = xQueueCreate(10, sizeof(TemperatureParams));
-    led_queue = xQueueCreate(10, sizeof(TemperatureParams));
-
-    // Crear tarea de configuración de GPIO
-    xTaskCreate(gpio_config_task, "GPIO config", 4096, NULL, 5, NULL);
-
-    
-
-    // Crear tarea de lectura de ADC
-    xTaskCreate(adc_task, "ADC read", 4096, NULL, 5, NULL);
-
-    // Crear tarea de lectura de comandos UART
-    xTaskCreate(uart_task, "UART read", 4096, NULL, 5, NULL);
-    
-    // Enciende y apaga los led segun los estados de las variables
-    xTaskCreate(led_task, "Led Set",4096, NULL , 5, NULL);
-
     vTaskDelay(10);
-
 }
-
