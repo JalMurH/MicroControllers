@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: D:\2023-1\MicroControllers\DDigital\DD_TempeMax\TempeMax.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=tempemax-roundholes.txt|DrillLayers=gtl,g1,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=tempemax-slotholes.txt|DrillLayers=gtl,g1,gbl

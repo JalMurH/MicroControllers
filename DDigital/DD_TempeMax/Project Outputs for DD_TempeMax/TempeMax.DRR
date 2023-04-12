@@ -1,0 +1,22 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: TempeMax.PcbDoc   1/04/2023  4:59:53 p. m.
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : TempeMax-RoundHoles.TXT
+ASCII SlotHoles File : TempeMax-SlotHoles.TXT
+EIA File   : TempeMax.DRL
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.254mm (10mil)                                           Round             8         PTH        19.82mm (0.78inch)
+T2      0.305mm (12mil)                                           Round             162       PTH        817.90mm (32.20inch)
+T3      0.889mm (35mil)                                           Round             2         PTH        4.40mm (0.17inch)
+T4      1.016mm (40mil)                                           Slot              3         PTH        31.85mm (1.25inch)
+T5      1.02mm (40mil)                                            Round             5         PTH        10.16mm (0.40inch)
+T6      1.1mm (43mil)                                             Round             3         PTH        5.08mm (0.20inch)
+T7      1.4mm (55mil)                                             Round             4         PTH        71.88mm (2.83inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              187
+
+Total Processing Time (hh:mm:ss) : 00:00:00

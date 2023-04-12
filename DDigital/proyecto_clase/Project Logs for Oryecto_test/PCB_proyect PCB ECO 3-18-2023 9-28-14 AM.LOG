@@ -1,0 +1,268 @@
+Change Component Designator: OldDesignator=C100 NewDesignator=C100_POWER_LOADS1
+Change Component Designator: OldDesignator=C101 NewDesignator=C101_POWER_LOADS1
+Change Component Designator: OldDesignator=C102 NewDesignator=C102_POWER_LOADS1
+Change Component Designator: OldDesignator=C103 NewDesignator=C103_POWER_LOADS1
+Change Component Designator: OldDesignator=C104 NewDesignator=C104_POWER_LOADS1
+Change Component Designator: OldDesignator=C105 NewDesignator=C105_POWER_LOADS1
+Change Component Designator: OldDesignator=C106 NewDesignator=C106_POWER_LOADS1
+Change Component Designator: OldDesignator=C107 NewDesignator=C107_POWER_LOADS1
+Change Component Designator: OldDesignator=C108 NewDesignator=C108_POWER_LOADS1
+Change Component Designator: OldDesignator=C109 NewDesignator=C109_POWER_LOADS1
+Change Component Designator: OldDesignator=D100 NewDesignator=D100_POWER_LOADS1
+Change Component Designator: OldDesignator=D101 NewDesignator=D101_POWER_LOADS1
+Change Component Designator: OldDesignator=FB100 NewDesignator=FB100_POWER_LOADS1
+Change Component Designator: OldDesignator=J100 NewDesignator=J100_POWER_LOADS1
+Change Component Designator: OldDesignator=J101 NewDesignator=J101_POWER_LOADS1
+Change Component Designator: OldDesignator=R100 NewDesignator=R100_POWER_LOADS1
+Change Component Designator: OldDesignator=R101 NewDesignator=R101_POWER_LOADS1
+Change Component Designator: OldDesignator=R102 NewDesignator=R102_POWER_LOADS1
+Change Component Designator: OldDesignator=SW100 NewDesignator=SW100_POWER_LOADS1
+Change Component Designator: OldDesignator=SW101 NewDesignator=SW101_POWER_LOADS1
+Change Component Designator: OldDesignator=U100 NewDesignator=U100_POWER_LOADS1
+Added Component: Designator=C100_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_CCTC-TCC0603X5R106K100CT_C380314.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "CCTC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TCC0603X5R106K100CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C380314"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C101_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Walsin-Tech-Corp-0603F104Z500CT_C83060.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Walsin Tech Corp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "0603F104Z500CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C83060"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C102_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_CCTC-TCC0603X5R106K100CT_C380314.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "CCTC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TCC0603X5R106K100CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C380314"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C103_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Walsin-Tech-Corp-0603F104Z500CT_C83060.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Walsin Tech Corp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "0603F104Z500CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C83060"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C104_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_CCTC-TCC0603X5R106K100CT_C380314.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "CCTC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TCC0603X5R106K100CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C380314"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C105_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Walsin-Tech-Corp-0603F104Z500CT_C83060.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Walsin Tech Corp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "0603F104Z500CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C83060"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C106_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_CCTC-TCC0603X5R106K100CT_C380314.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "CCTC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TCC0603X5R106K100CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C380314"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=C107_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Walsin-Tech-Corp-0603F104Z500CT_C83060.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Walsin Tech Corp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "0603F104Z500CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C83060"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C108_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Walsin-Tech-Corp-0603F104Z500CT_C83060.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Walsin Tech Corp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "0603F104Z500CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C83060"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1uF"; VariantName = "[No Variations]"
+Added Component: Designator=C109_POWER_LOADS2(0603_cap)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Walsin-Tech-Corp-0603F104Z500CT_C83060.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Walsin Tech Corp"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "0603F104Z500CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C83060"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = "NM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1uF"; VariantName = "[No Variations]"
+Added Component: Designator=D100_POWER_LOADS2(SOD_123)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Switching-Diode_Shanghai-Prisemi-Elec-PSBD1DF40V1H_C110730.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Shanghai Prisemi Elec"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "PSBD1DF40V1H"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C110730"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=D101_POWER_LOADS2(SOD_123)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Switching-Diode_Shanghai-Prisemi-Elec-PSBD1DF40V1H_C110730.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Shanghai Prisemi Elec"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "PSBD1DF40V1H"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C110730"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=FB100_POWER_LOADS2(0603_fb)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Ferrite-Beads_TAI-TECH-HCB1608KF-600T20_C369516.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "TAI-TECH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "HCB1608KF-600T20"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C369516"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "60 OHM"; VariantName = "[No Variations]"
+Added Component: Designator=J100_POWER_LOADS2(CON_2x1_TH_5MM)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Digi-Key"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Screw-terminal_JILN-JL126-50002G01_C394556.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "JILN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "JL126-50002G01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C394556"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=J101_POWER_LOADS2(CON_POWER_BARREL_2.1MM_3CONN)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/AC-DC-Power-Connectors_HCTL-HC-DC-005-2-0T_C3010533.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "HCTL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "HC-DC-005-2.0T"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C3010533"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R100_POWER_LOADS2(0603_res)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Chip-Resistor-Surface-Mount_FOJAN-FRC0603J102-TS_C2907113.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "FOJAN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "FRC0603J102 TS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C2907113"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R101_POWER_LOADS2(0603_res)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Chip-Resistor-Surface-Mount_FOJAN-FRC0603J102-TS_C2907113.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "FOJAN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "FRC0603J102 TS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C2907113"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=R102_POWER_LOADS2(0603_res)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Chip-Resistor-Surface-Mount_FOJAN-FRC0603J102-TS_C2907113.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "FOJAN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "FRC0603J102 TS"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C2907113"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Component: Designator=SW100_POWER_LOADS2(Sw_PUSH_4.5x4.5x5mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Tactile-Switches_BZCN-TSC015A05026A_C2888509.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Last modified by"; Value = "N-A.Potosi"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Last modified date"; Value = "20190222"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "BZCN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TSC015A05026A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C2888509"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Titoma stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SW101_POWER_LOADS2(Sw_PUSH_4.5x4.5x5mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Tactile-Switches_BZCN-TSC015A05026A_C2888509.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Last modified by"; Value = "N-A.Potosi"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Last modified date"; Value = "20190222"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "BZCN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "TSC015A05026A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier 1"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number 1"; Value = "C2888509"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Titoma stock"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Usage"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U100_POWER_LOADS2(SOT_223)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.lcsc.com/product-detail/Linear-Voltage-Regulators-LDO_WPMtek-Wei-Pan-Microelectronics-AMS1117-ADJ_C2688238.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "WPMtek(Wei Pan Microelectronics)"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "AMS1117-ADJ"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LCSC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "C2688238"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VIN_JACK Pin=C100_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=C100_POWER_LOADS2-2
+Added Pin To Net: NetName=VIN_JACK Pin=C101_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=C101_POWER_LOADS2-2
+Added Pin To Net: NetName=VIN_BORNER Pin=C102_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=C102_POWER_LOADS2-2
+Added Pin To Net: NetName=VIN_BORNER Pin=C103_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=C103_POWER_LOADS2-2
+Added Pin To Net: NetName=GND Pin=C104_POWER_LOADS2-2
+Added Pin To Net: NetName=GND Pin=C105_POWER_LOADS2-2
+Added Pin To Net: NetName=3V3 Pin=C106_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=C106_POWER_LOADS2-2
+Added Pin To Net: NetName=3V3 Pin=C107_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=C107_POWER_LOADS2-2
+Added Pin To Net: NetName=GND Pin=C108_POWER_LOADS2-2
+Added Pin To Net: NetName=NetC109_1 Pin=C109_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=C109_POWER_LOADS2-2
+Added Pin To Net: NetName=VIN Pin=D100_POWER_LOADS2-1
+Added Pin To Net: NetName=VIN_BORNER Pin=D100_POWER_LOADS2-2
+Added Pin To Net: NetName=VIN Pin=D101_POWER_LOADS2-1
+Added Pin To Net: NetName=VIN_JACK Pin=D101_POWER_LOADS2-2
+Added Pin To Net: NetName=VIN Pin=FB100_POWER_LOADS2-1
+Added Pin To Net: NetName=VIN_BORNER Pin=J100_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=J100_POWER_LOADS2-2
+Added Pin To Net: NetName=VIN_JACK Pin=J101_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=J101_POWER_LOADS2-3
+Added Pin To Net: NetName=3V3 Pin=R100_POWER_LOADS2-1
+Added Pin To Net: NetName=3V3 Pin=R101_POWER_LOADS2-2
+Added Pin To Net: NetName=NetC109_1 Pin=R102_POWER_LOADS2-2
+Added Pin To Net: NetName=GND Pin=SW100_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=SW100_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=SW101_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=SW101_POWER_LOADS2-1
+Added Pin To Net: NetName=GND Pin=U100_POWER_LOADS2-1
+Added Pin To Net: NetName=3V3 Pin=U100_POWER_LOADS2-2
+Change Net Name : Old Net Name=BUTTON_1 New Net Name=BUTTON_1_POWER_LOADS1
+Change Net Name : Old Net Name=NetC104_1 New Net Name=NetC104_POWER_LOADS1_1
+Change Net Name : Old Net Name=NetC109_1 New Net Name=NetC109_POWER_LOADS1_1
+Change Net Name : Old Net Name=NetR100_2 New Net Name=NetR100_POWER_LOADS1_2
+Added Pin To Net: NetName=BUTTON_1_POWER_LOADS2 Pin=C108_POWER_LOADS2-1
+Added Pin To Net: NetName=BUTTON_1_POWER_LOADS2 Pin=R101_POWER_LOADS2-1
+Added Pin To Net: NetName=BUTTON_1_POWER_LOADS2 Pin=SW100_POWER_LOADS2-2
+Added Pin To Net: NetName=BUTTON_1_POWER_LOADS2 Pin=SW100_POWER_LOADS2-2
+Added Net: Name=BUTTON_1_POWER_LOADS2
+Added Pin To Net: NetName=NetC104_POWER_LOADS2_1 Pin=C104_POWER_LOADS2-1
+Added Pin To Net: NetName=NetC104_POWER_LOADS2_1 Pin=C105_POWER_LOADS2-1
+Added Pin To Net: NetName=NetC104_POWER_LOADS2_1 Pin=FB100_POWER_LOADS2-2
+Added Pin To Net: NetName=NetC104_POWER_LOADS2_1 Pin=U100_POWER_LOADS2-3
+Added Net: Name=NetC104_POWER_LOADS2_1
+Added Pin To Net: NetName=NetR100_POWER_LOADS2_2 Pin=R100_POWER_LOADS2-2
+Added Pin To Net: NetName=NetR100_POWER_LOADS2_2 Pin=R102_POWER_LOADS2-1
+Added Pin To Net: NetName=NetR100_POWER_LOADS2_2 Pin=SW101_POWER_LOADS2-2
+Added Pin To Net: NetName=NetR100_POWER_LOADS2_2 Pin=SW101_POWER_LOADS2-2
+Added Net: Name=NetR100_POWER_LOADS2_2
+Change Class Name : Old Net Name=POWER_LOADS New Net Name=POWER_LOADS1
+Added Class: Name=POWER_LOADS2
+Added Class: Name=100_POWER_AND LOADS
+Change Room Name: Old Name=POWER_LOADS New Name=POWER_LOADS1
+Change Room Scope: Old Scope=InComponentClass('POWER_LOADS') New Scope=InComponentClass('POWER_LOADS1')
+Added Room: Name=POWER_LOADS2

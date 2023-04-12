@@ -1,0 +1,4 @@
+Change Class Name : Old Net Name=Designator New Net Name=FLASH_UART
+Added Class: Name=POWER_LOADS
+Added Room: Name=FLASH_UART
+Added Room: Name=POWER_LOADS

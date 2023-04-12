@@ -1,0 +1,4 @@
+Record=TopLevelDocument|FileName=Main.SchDoc|SheetNumber=1
+Record=SheetSymbol|SourceDocument=Main.SchDoc|Designator=FLASH_UART|SchDesignator=FLASH_UART|FileName=200_FLASH_AND_UART.SchDoc|SheetNumber=3|SymbolType=Normal|RawFileName=200_FLASH_AND_UART.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Main.SchDoc|Designator=MCU|SchDesignator=MCU|FileName=000_MCU.SchDoc|SheetNumber=4|SymbolType=Normal|RawFileName=000_MCU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Main.SchDoc|Designator=POWER_LOADS|SchDesignator=POWER_LOADS|FileName=100_POWER_AND LOADS.SchDoc|SheetNumber=2|SymbolType=Normal|RawFileName=100_POWER_AND LOADS.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
